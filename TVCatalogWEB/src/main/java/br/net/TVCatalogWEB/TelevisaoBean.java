@@ -7,7 +7,6 @@ import javax.faces.bean.ManagedBean;
 public class TelevisaoBean {
 	
 	// Atributos da classe televisão
-	private int id;			// Chave primária
 	private String modelo;
 	private String tipo;	// Tipo (LCD, LED, Plasma)
 	private String marca;
@@ -15,13 +14,6 @@ public class TelevisaoBean {
 	private float preco;
 	
 	// Getters e setters
-	public void setId(int id) {
-		this.id = id;
-	}
-	public int getId() {
-		return id;
-	}
-	
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
