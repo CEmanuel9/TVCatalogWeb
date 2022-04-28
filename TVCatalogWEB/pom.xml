@@ -26,16 +26,42 @@
       <scope>test</scope>
     </dependency>
     
+    <!-- Adicionando dependências do JSF -->
     <dependency>
 		<groupId>com.sun.faces</groupId>
 		<artifactId>jsf-api</artifactId>
 		<version>2.2.20</version>
+		<scope>compile</scope>
     </dependency>
     
     <dependency>
 		<groupId>com.sun.faces</groupId>
 		<artifactId>jsf-impl</artifactId>
 		<version>2.2.20</version>
+		<scope>compile</scope>
+    </dependency>
+    
+    <!-- Adicionando dependências do Hibernate -->
+    <dependency>
+    	<groupId>org.hibernate</groupId>
+    	<artifactId>hibernate-core</artifactId>
+    	<version>4.3.8.Final</version>
+    	<scope>compile</scope>
+    </dependency>
+    
+    <dependency>
+    	<groupId>org.hibernate</groupId>
+    	<artifactId>hibernate-entitymanager</artifactId>
+    	<version>4.3.8.Final</version>
+    	<scope>compile</scope>
+    </dependency>
+    
+    <!-- Adicionando driver do PostgreSQL -->
+    <dependency>
+    	<groupId>org.postgresql</groupId>
+    	<artifactId>postgresql</artifactId>
+    	<version>9.2-1003-jdbc4</version>
+    	<scope>compile</scope>
     </dependency>
   </dependencies>
 
