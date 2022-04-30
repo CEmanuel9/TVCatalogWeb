@@ -19,6 +19,10 @@
   </properties>
 
   <dependencies>
+  	<!-- OBS: Adicionar "<scope>compile</scope>" em uma dependência evita...
+  	...com que o servidor emita um erro de ClassNotFound, measmo funcionando...
+  	...corretamente. -->
+  	
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -39,6 +43,14 @@
 		<artifactId>jsf-impl</artifactId>
 		<version>2.2.20</version>
 		<scope>compile</scope>
+    </dependency>
+    
+    <!-- Adicionando dependências do Persistence -->
+    <dependency>
+    	<groupId>org.eclipse.persistence</groupId>
+    	<artifactId>javax.persistence</artifactId>
+    	<version>2.0.0</version>
+    	<scope>compile</scope>
     </dependency>
     
     <!-- Adicionando dependências do Hibernate -->
