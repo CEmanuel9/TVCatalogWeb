@@ -8,8 +8,8 @@ public class JPAUtil {
 	// Instância única do gerenciador de entidades
 	private static EntityManagerFactory factory = null;
 	
-	// Toda vez que essa classe for invocada, se não existir um...
-	// ...Entity Manager, ele deve ser criado.
+	// Toda vez que essa classe for invocada, se não existir uma...
+	// ...fábrica de gerenciadores de entidade, ele deve ser criado.
 	static {
 		if (factory == null) {
 			factory = Persistence.createEntityManagerFactory("TVCatalogWEB");
