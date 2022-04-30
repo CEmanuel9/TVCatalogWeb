@@ -12,6 +12,27 @@
 <h:body>
 	<h:form>
 		<h:outputLabel value = "Teste jsf"/>
+		<h:commandButton value = "Atualizar" action = "#{televisaoBean.listar}"></h:commandButton>
+		<h:dataTable value="#{televisaoBean.lista}" var="televisao">
+			<h:column>
+				<h:outputText value = "#{televisao.id}"/>
+			</h:column>
+			<h:column>
+				<h:outputText value = "#{televisao.modelo}"/>
+			</h:column>
+			<h:column>
+				<h:outputText value = "#{televisao.tipo}"/>
+			</h:column>
+			<h:column>
+				<h:outputText value = "#{televisao.marca}"/>
+			</h:column>
+			<h:column>
+				<h:outputText value = "#{televisao.polegadas}"/>
+			</h:column>
+			<h:column>
+				<h:outputText value = "#{televisao.preco}"/>
+			</h:column>
+		</h:dataTable>
 	</h:form>
 </h:body>
 
