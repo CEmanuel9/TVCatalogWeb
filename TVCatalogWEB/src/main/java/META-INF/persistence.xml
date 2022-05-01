@@ -4,7 +4,7 @@
 			 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<!-- Unidades de persistência -->
-	<persistence-unit name="TVCatalogWEB">
+	<persistence-unit name="tvcatalogweb">
 		<!-- Provedor de persistência -->
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		

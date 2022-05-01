@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
 import br.net.dao.DaoGenerico;
 import br.net.entidades.Televisao;
 
 // Determina essa classe como um ManagedBean de nome televisaoBean
+@ViewScoped
 @ManagedBean(name="televisaoBean")
 public class TelevisaoBean {
 	// Atributos
@@ -42,9 +44,10 @@ public class TelevisaoBean {
 	}
 	
 	// Método de salvamento no banco de dados.
-	public void salvar() {
+	public String salvar() {
 		this.daoGenerico.salvar(this.televisao);
 		this.listar();
+		return "";
 	}
 	
 	// AVISO: OBSOLETO. Os atributos e métodos foram repassados a uma classe...

@@ -9,10 +9,10 @@ public class JPAUtil {
 	private static EntityManagerFactory factory = null;
 	
 	// Toda vez que essa classe for invocada, se não existir uma...
-	// ...fábrica de gerenciadores de entidade, ele deve ser criado.
+	// ...fábrica de gerenciadores de entidade, ela deve ser criada.
 	static {
 		if (factory == null) {
-			factory = Persistence.createEntityManagerFactory("TVCatalogWEB");
+			factory = Persistence.createEntityManagerFactory("tvcatalogweb");
 		}
 	}
 	

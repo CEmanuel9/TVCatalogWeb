@@ -21,7 +21,8 @@
   <dependencies>
   	<!-- OBS: Adicionar "<scope>compile</scope>" em uma dependência evita...
   	...com que o servidor emita um erro de ClassNotFound, measmo funcionando...
-  	...corretamente. -->
+  	...corretamente. Se, mesmo assim, esse tipo de erro continuar aparecendo,
+  	...lembre-se de colocar as dependências do Maven no Web Deplyment Assembly. -->
   	
     <dependency>
       <groupId>junit</groupId>
