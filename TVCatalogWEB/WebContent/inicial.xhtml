@@ -28,23 +28,26 @@
 					  filterBy = "#{televisao.modelo}">
 				<h:outputText value = "#{televisao.modelo}"/>
 			</p:column>
-			<p:column headerText = "Tipo"
-					  sortBy = "#{televisao.tipo}"
-					  filterBy = "#{televisao.tipo}">
-				<h:outputText value = "#{televisao.tipo}"/>
-			</p:column>
-			<p:column field = "marca"
-					  headerText = "Marca"
+			<p:column field = "tipo"
+					  headerText = "Tipo"
 					  filterMatchMode = "exact"
-					  sortBy = "#{televisao.marca}">
-				<f:facet name="filtro">
-					<p:selectOneMenu onchange = "PF('televisaoTabela').filter()">
-						<f:selectItem itemLabel = "All"
+					  sortBy = "#{televisao.tipo}">
+				<f:facet name = "filter">
+					<p:selectOneMenu onchange = "PF('televisaoTabela').filter()"
+									 style = "width:130px">
+						<f:selectItem itemLabel = "Todos"
 									  itemValue = "#{null}"
 									  noSelectionOption = "true"/>
-						<f:selectItems value = "#{televisao.marca}"/>
+						<f:selectItem itemLabel = "LED" itemValue = "LED"/>
+						<f:selectItem itemLabel = "LCD" itemValue = "LCD"/>
+						<f:selectItem itemLabel = "Plasma" itemValue = "Plasma"/>
 					</p:selectOneMenu>
 				</f:facet>
+				<h:outputText value = "#{televisao.tipo}"/>
+			</p:column>
+			<p:column headerText = "Marca"
+					  sortBy = "#{televisao.marca}"
+					  filterBy = "#{televisao.marca}">
 				<h:outputText value = "#{televisao.marca}"/>
 			</p:column>
 			<p:column headerText = "Polegadas"
