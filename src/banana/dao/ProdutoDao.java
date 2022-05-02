@@ -1,11 +1,11 @@
-package television.dao;
+package banana.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import television.model.Produto;
+import banana.model.Produto;
 
 public class ProdutoDao {
 

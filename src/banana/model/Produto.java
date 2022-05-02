@@ -1,4 +1,4 @@
-package television.model;
+package banana.model;
 
 public class Produto {
 

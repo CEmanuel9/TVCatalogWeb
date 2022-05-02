@@ -1,9 +1,9 @@
-package television.controller;
+package banana.controller;
 
 import java.util.ArrayList;
 
-import television.dao.ProdutoDao;
-import television.model.Produto;
+import banana.dao.ProdutoDao;
+import banana.model.Produto;
 
 public class Teste {
 	public static void main(String[] args) {
