@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+
+<!-- Início do HTML com declaração de namespaces  -->
+<html xmlns = "http://www.w3.org/1999/xhtml"
+	  xmlns:h = "http://java.sun.com/jsf/html"
+	  xmlns:f = "http://java.sun.com/jsf/core"
+	  xmlns:p = "http://primefaces.org/ui">
+
+<h:head>
+	<title>Catálogo de TVs</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h:outputLabel value = "Teste jsf"/>
+		<h:commandButton value = "Atualizar" action = "#{televisaoBean.listar}"></h:commandButton>
+		<!-- Tabela filtrada com base no PrimeFaces -->
+		<p:dataTable var = "televisao"
+					 value = "#{televisaoBean.lista}"
+					 widgetVar = "televisaoTabela"
+					 emptyMessage = "Nenhuma televisão se encaixa nessa busca."
+					 filteredValue = "#{televisaoBean.listaFiltro}"
+					 filterBy = "#{televisaoBean.filtrarPor}">
+			<f:facet name = "header">
+				<span>Lista de Televisões</span>
+			</f:facet>
+			<p:column headerText = "Modelo"
+					  sortBy = "#{televisao.modelo}"
+					  filterBy = "#{televisao.modelo}">
+				<h:outputText value = "#{televisao.modelo}"/>
+			</p:column>
+			<p:column headerText = "Tipo"
+					  sortBy = "#{televisao.tipo}"
+					  filterBy = "#{televisao.tipo}">
+				<h:outputText value = "#{televisao.tipo}"/>
+			</p:column>
+			<p:column field = "marca"
+					  headerText = "Marca"
+					  filterMatchMode = "exact"
+					  sortBy = "#{televisao.marca}">
+				<f:facet name="filtro">
+					<p:selectOneMenu onchange = "PF('televisaoTabela').filter()">
+						<f:selectItem itemLabel = "All"
+									  itemValue = "#{null}"
+									  noSelectionOption = "true"/>
+						<f:selectItems value = "#{televisao.marca}"/>
+					</p:selectOneMenu>
+				</f:facet>
+				<h:outputText value = "#{televisao.marca}"/>
+			</p:column>
+			<p:column headerText = "Polegadas"
+					  sortBy = "#{televisao.polegadas}">
+				<h:outputText value = "#{televisao.polegadas}"/>
+			</p:column>
+			<p:column headerText = "Preço"
+					  sortBy = "#{televisao.preco}">
+				<h:outputText value = "#{televisao.preco}"/>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+
+</html>
