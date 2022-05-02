@@ -3,8 +3,11 @@ package br.net.TVCatalogWEB;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+
+import org.primefaces.model.FilterMeta;
 
 import br.net.dao.DaoGenerico;
 import br.net.entidades.Televisao;
@@ -17,6 +20,20 @@ public class TelevisaoBean {
 	private Televisao televisao = new Televisao();								// Entidade
 	private DaoGenerico<Televisao> daoGenerico = new DaoGenerico<Televisao>();	// DAO
 	private List<Televisao> lista = new ArrayList<Televisao>();					// Lista de retorno
+	private List<Televisao> listaFiltro = new ArrayList<Televisao>();			// Lista de retorno filtrada
+	
+	// Lista de filtros do PrimeFaces
+	private List<FilterMeta> filtrarPor;
+	
+	// Inicializador para tabela do PrimeFaces
+	@PostConstruct
+	public void init() {
+		// busca os elementos no banco de dados
+		this.listar();
+		
+		// inicia o filtro da tabela
+		this.filtrarPor = new ArrayList<>();
+	}
 	
 	// Getters e setters
 	public Televisao getTelevisao() {
@@ -36,6 +53,18 @@ public class TelevisaoBean {
 	}
 	public void setLista(List<Televisao> lista) {
 		this.lista = lista;
+	}
+	public List<Televisao> getListaFiltro() {
+		return this.listaFiltro;
+	}
+	public void setListaFiltro(List<Televisao> listaFiltro) {
+		this.listaFiltro = listaFiltro;
+	}
+	public List<FilterMeta> getFiltrarPor() {
+		return this.filtrarPor;
+	}
+	public void setFiltrarPor(List<FilterMeta> filtrarPor) {
+		this.filtrarPor = filtrarPor;
 	}
 	
 	// Método de carregamento pelo banco de dados.
