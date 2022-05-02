@@ -25,6 +25,9 @@ public class TelevisaoBean {
 	// Lista de filtros do PrimeFaces
 	private List<FilterMeta> filtrarPor;
 	
+	// Objeto selecionado no PrimeFaces
+	private Televisao selecionado;
+	
 	// Inicializador para tabela do PrimeFaces
 	@PostConstruct
 	public void init() {
@@ -66,7 +69,13 @@ public class TelevisaoBean {
 	public void setFiltrarPor(List<FilterMeta> filtrarPor) {
 		this.filtrarPor = filtrarPor;
 	}
-	
+	public Televisao getSelecionado() {
+		return this.selecionado;
+	}
+	public void setSelecionado(Televisao selecionado) {
+		this.selecionado = selecionado;
+	}
+
 	// Método de carregamento pelo banco de dados.
 	public void listar() {
 		this.lista = this.daoGenerico.getListEntity(Televisao.class);

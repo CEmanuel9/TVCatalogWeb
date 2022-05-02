@@ -12,7 +12,7 @@
 </h:head>
 
 <h:body>
-	<h:form>
+	<h:form id = "form">
 		<!-- Descrição dos tipos de televisores -->
 		<h1>Tipos de televisores:</h1>
 		<br/>
@@ -84,7 +84,59 @@
 					  sortBy = "#{televisao.preco}">
 				<h:outputText value = "#{televisao.preco}"/>
 			</p:column>
+			<p:column style = "width:3rem;text-align:center">
+				<p:commandButton update = ":form:productDetail"
+								 oncomplete = "PF('productDialog').show()"
+								 icon = "pi pi-search"
+								 title = "View">
+					<f:setPropertyActionListener value = "#{televisao}"
+												 target = "#{televisaoBean.selecionado}"/>
+				</p:commandButton>
+			</p:column>
 		</p:dataTable>
+		
+		<!-- Tela de diálogo detalhada. -->
+		<!-- Nota: a tela de diálogo aparece, mas não mostra os dados.
+		É preciso investigar e resolver. -->
+		<p:dialog header = "Informações da Televisão"
+				  widgetVar = "productDialog"
+				  modal = "true"
+				  showEffect = "fade"
+				  hideEffect = "fade"
+				  resizable = "false">
+			<p:outputPanel id = "productDetail"
+						   style = "text-align:center">
+				<p:column rendered = "#{not empty televisaoBean.selecionado}">
+					<div class = "product">
+						<div class = "product-grid-item card"
+							 style = "margin-bottom:0">
+							<div class = "product-grid-item-top">
+								<div>
+									<i class = "pi pi-tag product-category-icon"/>
+									<span class = "product-category">
+										#{televisaoBean.selecionado.marca}
+									</span>
+								</div>
+							</div>
+							<div class = "product-grid-item-content">
+								<div class = "product-name">
+									#{televisaoBean.selecionado.modelo}
+								</div>
+								<div class = "product-description">
+									Suco de cevadis é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.
+								</div>
+							</div>
+							<div class = "product-grid-item-bottom">
+								<h:outputText value = "#{televisaoBean.selecionado.preco}">
+									<f:convertNumber currencySymbol = "R$"
+													 type = "currency"/>
+								</h:outputText>
+							</div>
+						</div>
+					</div>
+				</p:column>
+			</p:outputPanel>
+		</p:dialog>
 	</h:form>
 </h:body>
 
